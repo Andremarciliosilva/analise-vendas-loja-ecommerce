@@ -1,0 +1,20 @@
+[project]
+name = "analise-vendas"
+version = "0.1.0"
+package-mode = false
+description = "Análise de vendas de uma loja de E-commerce"
+authors = [
+    {name = "Andre Silva"}
+]
+requires-python = "3.14.2"
+dependencies = [
+    "pandas (>=3.0.0,<4.0.0)",
+    "numpy (>=2.4.1,<3.0.0)",
+    "matplotlib (>=3.10.8,<4.0.0)",
+    "faker (>=40.1.2,<41.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
