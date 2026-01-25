@@ -25,6 +25,11 @@ def transformar_dados(caminho_entrada="output/dados_vendas_bronze.csv", caminho_
     # Padronizar a coluna de datas para o formato "dd/mm/yyyy"
     df_clean['data'] = pd.to_datetime(df_clean['data'], errors='coerce').dt.strftime('%d/%m/%Y')
     print("As datas foram padronizadas para o formato dd/mm/yyyy.")
+
+    # Ordenar datas em ordem decrescente
+    df_clean = df_clean.sort_values(by='data', ascending=False)
+    print("As datas foram ordenadas em ordem decrescente.")
+
     # Calcular o valor total da venda
     df_clean['valor_total'] = df_clean['preco'] * df_clean['quantidade']
     print("A coluna 'valor_total' foi adicionada ao DataFrame.")
@@ -32,4 +37,4 @@ def transformar_dados(caminho_entrada="output/dados_vendas_bronze.csv", caminho_
     # Salvar os dados transformados em um novo arquivo CSV
     df_clean.to_csv(caminho_saida, index=False)
 
-    return df
+    return df_clean
