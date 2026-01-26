@@ -8,8 +8,11 @@
 
 import pandas as pd
 
+def formatar_reais(valor):
+    return f"R$ {valor:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
 def transformar_dados(caminho_entrada, caminho_saida):
-    # Carregar os dados do arquivo CSV
+    # Carregar os dados do arquivo CSV e tratar valores vazios
     df = pd.read_csv(caminho_entrada, na_values=[""])
     print(f"Registros originais: {len(df)}")
 
@@ -31,8 +34,8 @@ def transformar_dados(caminho_entrada, caminho_saida):
     print("As datas foram ordenadas em ordem decrescente.")
 
     # Calcular o valor total da venda
-    df_clean['valor_total'] = df_clean['preco'] * df_clean['quantidade']
-    print("A coluna 'valor_total' foi adicionada ao DataFrame.")
+    df_clean['Faturamento'] = df_clean['preco'] * df_clean['quantidade']
+    print("A coluna 'Faturamento' foi adicionada ao DataFrame.")
 
     # Salvar os dados transformados em um novo arquivo CSV
     df_clean.to_csv(caminho_saida, index=False)

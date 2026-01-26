@@ -8,19 +8,22 @@ fake = Faker("pt_BR")
 
 # Categoria: Smartphones e Acessórios
 # Produtos e preços: Smartphone: R$ 2.000,00 / Fone de Ouvido: R$ 200,00 / Carregador: R$ 100,00 / Smartwatch: R$ 1.000,00
-smartphone_e_acessorios = {'smartphone': 2000, 'fone de ouvido': 200, 'carregador': 100, 'smartwatch': 1000, 'capinha': ''}
+smartphone_e_acessorios = {'smartphone': 2000.0, 'fone de ouvido': 200.0, 'carregador': 100.0, 'smartwatch': 1000.0, 'capinha': ''}
 
 # Categoria: Informática e Periféricos
 # Produtos e preços: Notebook: R$ 4.000,00 / Monitor: 1.500,00 / Mouse: R$ 100,00
-informatica_e_perifericos = {'notebook': 4000, 'monitor': 1500, 'mouse': 100, 'teclado': ''}
-
+informatica_e_perifericos = {'notebook': 4000.0, 'monitor': 1500.0, 'mouse': 100.0, 'teclado': ''}
 # Categoria: Eletrodomésticos
 # Produtos e preços: Ar-Condicionado: R$ 2.500,00 / Geladeira: R$ 5.000,00 / Fogão: R$ 1.500,00
-eletrodomesticos = {'ar-condicionado': 2500, 'geladeira': 5000, 'fogao': 1500, 'micro-ondas': ''}
+eletrodomesticos = {'ar-condicionado': 2500.0, 'geladeira': 5000.0, 'fogao': 1500.0, 'micro-ondas': ''}
 
 # Categoria: TV, Áudio e Vídeo
 # Produtos e preços: Smart TV: R$ 4.000,00 / Soundbar: R$ 1.000,00 / Chromecast: R$ 200,00
-tv_audio_video = {'smart tv': 4000, 'soundbar': 1000, 'chromecast': 200 , 'home theater': ''}
+tv_audio_video = {'smart tv': 4000.0, 'soundbar': 1000.0, 'chromecast': 200.0, 'home theater': ''}
+
+# Localização: Cidades
+cidades_brasil = ["São Paulo","Rio de Janeiro","Belo Horizonte","Campinas","Santos","Curitiba",
+                  "Porto Alegre","Florianópolis","Joinville","Balneário Camboriú"]
 
 # Função para gerar dados aleatórios
 
@@ -49,6 +52,7 @@ def gerar_dados(num_vendas, caminho_saida="output/dados_bronze.csv"):
         cliente = random.randint(1, 10000)
         quantidade = random.randint(1, 5)
         data = fake.date_between(start_date="-2y", end_date="today")
+        cidade = random.choice(cidades_brasil)
 
         dados_gerados.append({
             'cliente': cliente,
@@ -56,7 +60,8 @@ def gerar_dados(num_vendas, caminho_saida="output/dados_bronze.csv"):
             'preco': preco,
             'categoria': categoria,
             'quantidade': quantidade,
-            'data': data
+            'data': data,
+            'cidade': cidade
         })
 
     # Cria DataFrame 
