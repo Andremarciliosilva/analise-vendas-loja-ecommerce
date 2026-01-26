@@ -58,12 +58,6 @@ O foco está em aplicar boas práticas de análise de dados com uma visão clara
 
 ---
 
-## 🏗️ Estrutura do Projeto
-
-Em andamento
-
----
-
 ## 📈 Resultados Esperados e Benefícios de Negócio
 
 **Otimização de Estoque**  
@@ -79,6 +73,107 @@ Melhor previsibilidade de demanda com base em tendências históricas.
 Decisões baseadas em dados concretos em vez de intuição.
 
 ---
+
+## 🏗️ Estrutura do Projeto
+
+```text
+📁 analise-vendas-loja-ecommerce
+│
+├── 📁 dados                    # Camadas do pipeline
+│   ├── 🥉 bronze               # Dados brutos
+│   ├── 🥈 silver               # Dados tratados
+│   └── 🥇 gold                 # Dados prontos para análise
+│
+├── 📁 notebooks/               # Exploração e ETL
+│   ├── 📊 analise_vendas.ipynb
+│   └── ⚙️ etl.ipynb
+│
+├── 📁 output/                  # Arquivos finais
+│   ├── 🗂️ dados_bronze.csv
+│   ├── 🗂️ dados_silver.csv
+│   └── 🗂️ dados_gold.csv
+│
+📁 requisitos-de-negocio/       # Documentação
+│   └── 📄 requisitos-de-negocio.pdf
+│
+├── LICENCE
+│
+├── poetry.lock
+│
+├── pyproject.toml
+│
+└── 📄 README.md
+```
+
+## 🏛️ Arquitetura do Pipeline de Dados
+
+A arquitetura do projeto segue o modelo de camadas **Bronze / Silver / Gold**
+
+```text
+           🧪 Geração de Dados (Faker)
+                     │
+                     ▼
+            📥 Ingestão de Dados
+                     │
+                     ▼
+              🥉 Bronze Layer
+           (dados brutos em CSV)
+                     │
+                     ▼
+        🔄 Limpeza e Transformações
+      - remoção de nulos  
+      - padronização de datas  
+      - conversão de tipos  
+                     │
+                     ▼
+              🥈 Silver Layer
+        (dados tratados e validados)
+                     │
+                     ▼
+         📊 Agregações Analíticas
+      - faturamento por categoria  
+      - vendas por cidade  
+      - evolução mensal  
+                     │
+                     ▼
+              🥇 Gold Layer
+      (dados prontos para análise)
+                     │
+                     ▼
+        📈 Visualizações e Insights
+      - gráficos em Matplotlib  
+      - análises exploratórias  
+```
+
+## 🔹 Descrição das Camadas
+
+### 🥉 Bronze — Dados Brutos
+- Dados gerados artificialmente com Faker  
+- Nenhuma transformação aplicada  
+- Objetivo: preservar os dados originais  
+
+### 🥈 Silver — Dados Tratados
+- Remoção de valores nulos  
+- Padronização de datas  
+- Conversão de tipos  
+- Validação de consistência  
+
+### 🥇 Gold — Dados Analíticos
+- Agregações por categoria, cidade e mês  
+- Métricas prontas para consumo  
+- Base para visualizações e tomada de decisão  
+
+---
+
+## 🧠 Aprendizados
+
+- Como organizar e estruturar um projeto
+- Conceito de camadas bronze, silver e gold
+- Pensamento crítico, sempre procurando identificar coisas que possivelmente poderiam dar errado
+- Utilização do Poetry, recurso que permite gerenciar as dependência e trabalhar em um ambiente isolado de maneira a não gerar conflito com outros projetos
+- Criação de biblioteca e como utilzar os métodos criados nela
+- Tratamento de dados com Pandas
+- Resolução de problemas de negócio, transformando dados brutos em insights
 
 👤 **Autor**  
 André Silva 
