@@ -56,6 +56,12 @@ A solução consiste na:
 
 O foco está em aplicar boas práticas de análise de dados com uma visão clara de negócio.
 
+## 📘 Documentação Complementar
+
+Além da documentação técnica, este projeto conta com um material complementar que descreve o planejamento, organização das atividades e metodologia de desenvolvimento:
+
+➡️ [`lista-de-tarefas.md`](lista-de-tarefas.md)
+
 ---
 
 ## 📈 Resultados Esperados e Benefícios de Negócio
