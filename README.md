@@ -104,6 +104,8 @@ Decisões baseadas em dados concretos em vez de intuição.
 │
 ├── LICENCE
 │
+├── lista-de-tarefas.md
+│
 ├── poetry.lock
 │
 ├── pyproject.toml
